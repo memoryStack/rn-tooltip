@@ -35,6 +35,7 @@ type Props = {
   highlightColor: string,
   toggleWrapperProps: {},
   actionType: 'press' | 'longPress' | 'none',
+  show?: Boolean,
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -198,6 +199,12 @@ class Tooltip extends React.Component<Props, State> {
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.show !== prevProps.show) {
+      this.setState({ isVisible: this.props.show });
+    }
   }
 
   getElementPosition = () => {

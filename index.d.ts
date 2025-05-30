@@ -17,6 +17,7 @@ type Props = {
   highlightColor?: string,
   toggleWrapperProps?: TouchableOpacityProps,
   actionType: 'press' | 'longPress' | 'none',
+  show?: boolean,
   children: React.ReactNode
 };
 
